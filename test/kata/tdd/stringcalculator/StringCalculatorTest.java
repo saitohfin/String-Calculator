@@ -24,6 +24,7 @@ public class StringCalculatorTest {
         //Assert
         assertEquals("Hasn't returned the input value", expected, result);
     }
+
     @Test
     public void hasEmptyInputReturnsNull(){
         //Arrange
@@ -32,6 +33,17 @@ public class StringCalculatorTest {
         String result = calculator.calculate(input);
         //Assert
         assertNull("The result should be null", result);
+    }
+
+    @Test
+    public void fivePlusfourReturnNine(){
+        //Arrange
+        final String expected = "9";
+        final String input = "5+4";
+        //Act
+        String result = calculator.calculate(input);
+        //Assert
+        assertEquals("The result of the summatory isn't nine", expected, result);
     }
 
 }
