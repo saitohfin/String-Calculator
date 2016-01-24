@@ -27,7 +27,6 @@ public class StringCalculatorTest {
     @Test
     public void hasEmptyInputReturnsNull(){
         //Arrange
-        final String expected = null;
         final String input = "";
         //Act
         String result = calculator.calculate(input);
