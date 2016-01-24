@@ -46,4 +46,15 @@ public class StringCalculatorTest {
         assertEquals("The result of the summatory isn't nine", expected, result);
     }
 
+    @Test
+    public void fiveLessfourReturnOne(){
+        //Arrange
+        final String expected = "1";
+        final String input = "5-4";
+        //Act
+        String result = calculator.calculate(input);
+        //Assert
+        assertEquals("The result of the subtraction isn't one", expected, result);
+    }
+
 }
