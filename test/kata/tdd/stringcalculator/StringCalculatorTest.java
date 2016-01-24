@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertNull;
 
 public class StringCalculatorTest {
 
@@ -23,4 +24,15 @@ public class StringCalculatorTest {
         //Assert
         assertEquals("Hasn't returned the input value", expected, result);
     }
+    @Test
+    public void hasEmptyInputReturnsNull(){
+        //Arrange
+        final String expected = null;
+        final String input = "";
+        //Act
+        String result = calculator.calculate(input);
+        //Assert
+        assertNull("The result should be null", result);
+    }
+
 }
