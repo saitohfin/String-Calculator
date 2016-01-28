@@ -68,4 +68,15 @@ public class StringCalculatorTest {
         assertEquals("The result of the subtraction isn't thirteen", expected, result);
     }
 
+    @Test
+    public void operationWithSpacesfourteenLessOneReturnThirteen(){
+        //Arrange
+        final String expected = "13";
+        final String input = " 14 - 1 ";
+        //Act
+        String result = calculator.calculate(input);
+        //Assert
+        assertEquals("The result of the subtraction isn't thirteen", expected, result);
+    }
+
 }
