@@ -79,4 +79,15 @@ public class StringCalculatorTest {
         assertEquals("The result of the subtraction isn't thirteen", expected, result);
     }
 
+    @Test
+    public void fiveMultiplyfourReturnTwenty(){
+        //Arrange
+        final String expected = "20";
+        final String input = "5*4";
+        //Act
+        String result = calculator.calculate(input);
+        //Assert
+        assertEquals("The result of the multiplication isn't twnenty", expected, result);
+    }
+
 }
