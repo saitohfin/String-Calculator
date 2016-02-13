@@ -8,7 +8,7 @@ public class StringCalculator {
     List<IOperator> operators;
 
     public StringCalculator(){
-        operators = Arrays.asList(new Sumator(), new Substractor(), new Multiplicator());
+        operators = Arrays.asList(new Sumator(), new Substractor(), new Multiplicator(), new Divider());
     }
 
     public String calculate(String value) {

@@ -16,7 +16,7 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void hasNotOperationReturnTheInput(){
+    public void hasNotOperationReturnsTheInput(){
         //Arrange
         final String expected = "5";
         //Act
@@ -36,7 +36,7 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void fivePlusfourReturnNine(){
+    public void fivePlusfourReturnsNine(){
         //Arrange
         final String expected = "9";
         final String input = "5+4";
@@ -47,7 +47,7 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void fiveLessfourReturnOne(){
+    public void fiveLessfourReturnsOne(){
         //Arrange
         final String expected = "1";
         final String input = "5-4";
@@ -58,7 +58,7 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void fourteenLessOneReturnThirteen(){
+    public void fourteenLessOneReturnsThirteen(){
         //Arrange
         final String expected = "13";
         final String input = "14-1";
@@ -69,7 +69,7 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void operationWithSpacesfourteenLessOneReturnThirteen(){
+    public void operationWithSpacesfourteenLessOneReturnsThirteen(){
         //Arrange
         final String expected = "13";
         final String input = " 14 - 1 ";
@@ -80,14 +80,24 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void fiveMultiplyfourReturnTwenty(){
+    public void fiveMultiplyfourReturnsTwenty(){
         //Arrange
         final String expected = "20";
         final String input = "5*4";
         //Act
         String result = calculator.calculate(input);
         //Assert
-        assertEquals("The result of the multiplication isn't twnenty", expected, result);
+        assertEquals("The result of the multiplication isn't twenty", expected, result);
     }
 
+    @Test
+    public void twentyDivideFourReturnsFive(){
+        //Arrange
+        final String expected = "5";
+        final String input = "20/4";
+        //Act
+        String result = calculator.calculate(input);
+        //Assert
+        assertEquals("The result of the division isn't five", expected, result);
+    }
 }
