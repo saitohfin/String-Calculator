@@ -100,4 +100,18 @@ public class StringCalculatorTest {
         //Assert
         assertEquals("The result of the division isn't five", expected, result);
     }
+
+    /**
+     *  Multi-operations with the same precedence level
+     */
+    @Test
+    public void fourPlusFiveLessThreeReturnsSix(){
+        //Arrange
+        final String expected = "6";
+        final String input = "5 + 4 - 3";
+        //Act
+        String result = calculator.calculate(input);
+        //Assert
+        assertEquals("The result of the calculation isn't six", expected, result);
+    }
 }
