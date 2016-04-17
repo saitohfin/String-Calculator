@@ -15,40 +15,40 @@ public class StringCalculator {
     public String calculate(String value) {
         if(!isCompatible(value)) return null;
 
+        OperationReader reader = new OperationReader(value);
         Double result = 0.0;
         List<String> operands = new ArrayList<String>();
         String operand = "";
         IOperator operator = null;
-        char[] chars = value.toCharArray();
-        for(char character : chars){
-            if(isAnOperator(character)){
-                operands.add(operand);
-                operand = "";
 
+        while (!reader.isFinished()){
+            String v = reader.nextValue();
+            if(isAnOperator(v)){
+                operator = extractOperator(v);
                 if(operands.size() == 2){
                     result = operator.calculate(Double.parseDouble(operands.get(0)), Double.parseDouble(operands.get(1)));
                     operands.clear();
                     operands.add(result.toString());
                 }
-                operator = extractOperator(character);
             }else{
-                operand += character;
+                operands.add(v);
             }
         }
-        operands.add(operand);
+
         if(operands.size() == 2){
             result = operator.calculate(Double.parseDouble(operands.get(0)), Double.parseDouble(operands.get(1)));
         }else{
             result = Double.parseDouble(operand);
         }
+
         return "" + result.intValue();
     }
 
-    private boolean isAnOperator(char unit) {
+    private boolean isAnOperator(String unit) {
         boolean isOperator = false;
         for(IOperator operator : operators){
             String symbol = operator.symbol();
-            if(symbol.charAt(0) == unit){
+            if(symbol.charAt(0) == unit.charAt(0)){
                 isOperator = true;
                 break;
             }
@@ -56,11 +56,11 @@ public class StringCalculator {
         return isOperator;
     }
 
-    private IOperator extractOperator(char unit) {
+    private IOperator extractOperator(String unit) {
         IOperator selectedOperator = null;
         for(IOperator operator : operators){
             String symbol = operator.symbol();
-            if(symbol.charAt(0) == unit){
+            if(symbol.charAt(0) == unit.charAt(0)){
                 selectedOperator = operator;
                 break;
             }
